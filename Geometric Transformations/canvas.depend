@@ -111,7 +111,7 @@
 
 1589217858 d:\documentos\github\geometric-transformations\geometric transformations\src\vector2.h
 
-1653706906 source:d:\documentos\github\geometric-transformations\geometric transformations\src\main.cpp
+1655098560 source:d:\documentos\github\geometric-transformations\geometric transformations\src\main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<math.h>
@@ -120,10 +120,18 @@
 	"gl_canvas2d.h"
 	"Vector2.h"
 	"rect.h"
+	"bicicleta.h"
 
 1653704098 d:\documentos\github\geometric-transformations\geometric transformations\src\rect.h
 	<stdio.h>
 	<stdlib.h>
+	"gl_canvas2d.h"
+	"Vector2.h"
+
+1655128995 d:\documentos\github\geometric-transformations\geometric transformations\src\bicicleta.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
 	"gl_canvas2d.h"
 	"Vector2.h"
 
