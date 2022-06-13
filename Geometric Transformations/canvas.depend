@@ -135,3 +135,72 @@
 	"gl_canvas2d.h"
 	"Vector2.h"
 
+1655141140 source:c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\gl_canvas2d.cpp
+	"gl_canvas2d.h"
+	<GL/glut.h>
+
+1655141140 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\gl_canvas2d.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+	"Vector2.h"
+
+1655141140 c:\users\maure\documents\github\geometric-transformations\geometric transformations\include\gl\glut.h
+	"freeglut_std.h"
+
+1655141140 c:\users\maure\documents\github\geometric-transformations\geometric transformations\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1655141140 c:\users\maure\documents\github\geometric-transformations\geometric transformations\include\gl\freeglut_ext.h
+	<stdarg.h>
+
+1655141140 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\vector2.h
+
+1655149490 source:c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\main.cpp
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	"gl_canvas2d.h"
+	"Vector2.h"
+	"rect.h"
+	"bicicleta.h"
+	"Bmp.h"
+	"Draw.h"
+
+1655141140 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\rect.h
+	<stdio.h>
+	<stdlib.h>
+	"gl_canvas2d.h"
+	"Vector2.h"
+
+1655151099 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\bicicleta.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"gl_canvas2d.h"
+	"Vector2.h"
+
+1652895039 source:c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\bmp.cpp
+	"Bmp.h"
+	<string.h>
+
+1652895039 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\bmp.h
+	<stdio.h>
+	<stdlib.h>
+
+1655144690 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\draw.h
+	"gl_canvas2d.h"
+

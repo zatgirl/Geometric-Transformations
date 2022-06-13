@@ -25,15 +25,20 @@
 #include "Vector2.h"
 #include "rect.h"
 #include "bicicleta.h"
+#include "Bmp.h"
+#include "Draw.h"
+
 #define M_PI           3.14159265358979323846  /* pi */
 
-int screenWidth = 1176, screenHeight = 600; //largura e altura inicial da tela . Alteram com o redimensionamento de tela.
+int screenWidth = 1176, screenHeight = 588;//largura e altura inicial da tela . Alteram com o redimensionamento de tela.
 int mouseX, mouseY; //variaveis globais do mouse para poder exibir dentro da render().
 bool click = false;
 Vector2 cL, cR;
 
 Rect *rect;
 Bicicleta *bike;
+Bmp *bmp;
+Img *img;
 
 void render()
 {
@@ -64,16 +69,22 @@ void mouse(int button, int state, int wheel, int direction, int x, int y)
    {
        click = true;
    }
-
+//
 }
 
 int main(void)
 {
+    unsigned char *data;
+    bmp = new Bmp("..\Geometric Transformations\resources\scene.bmp");
+    bmp->convertBGRtoRGB();
+    data = bmp->getImage();
+//    img = Img(bmp->getHeight(), bmp->getWidth(), 0,0,data);
+
     cL.set(200,200);
     cR.set(400,200);
     //printf("cL: %. 2f | %. 2f\n", cL.x, cL.y);
     rect = new Rect(100,100,50,50);
-    bike = new Bicicleta(4, cL, cR, 50);
+    bike = new Bicicleta(8, cL, cR, 50);
     CV::init(&screenWidth, &screenHeight, "testes");
     CV::run();
     return 0;
