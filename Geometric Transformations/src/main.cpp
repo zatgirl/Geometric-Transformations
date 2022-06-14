@@ -27,41 +27,58 @@
 #include "bicicleta.h"
 #include "Bmp.h"
 #include "Draw.h"
+#include "scene.h"
 
 #define M_PI           3.14159265358979323846  /* pi */
 
 int screenWidth = 1176, screenHeight = 588;//largura e altura inicial da tela . Alteram com o redimensionamento de tela.
-int mouseX, mouseY; //variaveis globais do mouse para poder exibir dentro da render().
+int mouseX, mouseY, keyPress; //variaveis globais do mouse para poder exibir dentro da render().
 bool click = false;
 Vector2 cL, cR;
+int amountRays = 8;
 
 Rect *rect;
 Bicicleta *bike;
 Bmp *bmp;
 Img *img;
+Scene *scene;
 
 void render()
 {
-     bike->render();
+    bike->render();
+    scene->render();
 }
 
 void keyboard(int key)
 {
-   if( key == 95 )
-   {
-      click == true;
-   }
+    ///Controla a velocidade da bicicleta
+    switch(key){
+    case 202:
+        bike->vel += 0.01;
+        break;
+    case 200:
+        bike->vel -= 0.01;
+        break;
+    case 43:
+        bike->amountRays +=4;
+        break;
+    case 45:
+        if(amountRays != 4){
+            bike->amountRays -=4;
+        }
+        break;
+    }
 }
 
 void keyboardUp(int key)
 {
-   printf("\nLiberou: %d" , key);
+
 }
 
 //funcao para tratamento de mouse: cliques, movimentos e arrastos
 void mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-printf("mx: %d, my: %d\n", x,y);
+   //printf("mx: %d, my: %d, key: $d\n", x,y,keyPress);
    mouseX = x;
    mouseY = y;
 
@@ -75,8 +92,6 @@ printf("mx: %d, my: %d\n", x,y);
 int main(void)
 {
 
-
-
     unsigned char *data;
     bmp = new Bmp("..\Geometric Transformations\resources\scene.bmp");
     bmp->convertBGRtoRGB();
@@ -86,7 +101,8 @@ int main(void)
     cL.set(200,200);
     cR.set(400,200);
     rect = new Rect(100,100,50,50);
-    bike = new Bicicleta(8, cL, cR, 50, 1);
+    bike = new Bicicleta(amountRays, cL, cR, 50, 1);
+    scene = new Scene();
     CV::init(&screenWidth, &screenHeight, "testes");
     CV::run();
     return 0;

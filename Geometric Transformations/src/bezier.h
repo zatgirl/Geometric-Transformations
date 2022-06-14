@@ -33,14 +33,17 @@ class BE
     }
 
     static void CurvaGrande(std::vector<Vector2*> v) {
-       int lastP = 0;
-       for (float t = 0; t < 1; t += 0.0001) {
-          Vector2 p = *v[0]*((1-t)*(1-t)) + *v[1]*((2*t*(1-t))) + *v[2]*(t*t);
-
-          if ((int) p.x != lastP)
-             CV::line(p, Vector2(p.x,0));
-
-          lastP = p.x;
+       Vector2 p;
+       int size_v;
+       size_v = v.size();
+       CV::color(0);
+       for(int i = 0; i < size_v; i+=3){
+           for (float t = 0; t < 1; t += 0.0001) {
+              p = *v[i] * (1-t)*(1-t) +
+                  *v[i+1] * 2 * t * (1 - t) +
+                  *v[i+2] * (t * t);
+              CV::point(p.x,p.y);
+           }
        }
     }
 
