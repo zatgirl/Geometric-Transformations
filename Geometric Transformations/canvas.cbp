@@ -47,7 +47,7 @@
 		<Unit filename="src/Frames.h" />
 		<Unit filename="src/Vector2.h" />
 		<Unit filename="src/bezier.h" />
-		<Unit filename="src/bicicleta.h" />
+		<Unit filename="src/geotrans.h" />
 		<Unit filename="src/gl_canvas2d.cpp" />
 		<Unit filename="src/gl_canvas2d.h" />
 		<Unit filename="src/main.cpp" />

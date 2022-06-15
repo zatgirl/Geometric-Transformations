@@ -111,7 +111,7 @@
 
 1655259852 d:\documentos\github\geometric-transformations\geometric transformations\src\vector2.h
 
-1655259788 source:d:\documentos\github\geometric-transformations\geometric transformations\src\main.cpp
+1655260903 source:d:\documentos\github\geometric-transformations\geometric transformations\src\main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<math.h>
@@ -119,7 +119,7 @@
 	<stdlib.h>
 	"gl_canvas2d.h"
 	"Vector2.h"
-	"bicicleta.h"
+	"geotrans.h"
 	"scene.h"
 	"Frames.h"
 
@@ -129,7 +129,7 @@
 	"gl_canvas2d.h"
 	"Vector2.h"
 
-1655259912 d:\documentos\github\geometric-transformations\geometric transformations\src\bicicleta.h
+1655260808 d:\documentos\github\geometric-transformations\geometric transformations\src\bicicleta.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -235,4 +235,12 @@
 1632111310 d:\documentos\github\geometric-transformations\geometric transformations\src\frames.h
 	<stdio.h>
 	<time.h>
+
+1655261078 d:\documentos\github\geometric-transformations\geometric transformations\src\geotrans.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"gl_canvas2d.h"
+	"Vector2.h"
+	"bezier.h"
 

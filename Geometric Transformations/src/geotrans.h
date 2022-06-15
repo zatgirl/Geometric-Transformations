@@ -1,5 +1,5 @@
-#ifndef ___BICICLETA__H___
-#define ___BICICLETA__H___
+#ifndef ___GEOTRANS__H___
+#define ___GEOTRANS__H___
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,7 +16,7 @@ public:
     Vector2 p2[32];
 };
 
-class Bicicleta
+class GeoTrans
 {
 public:
     Vector2 aros[8], arosTrans[8], pedalLeft[2], pedalRight[2], centerLeft, centerRight, centerPedal, guidaoLeft, guidaoRight;
@@ -30,10 +30,10 @@ public:
     float vel = 0.01;
     float perna_size = 190;
 
-    Bicicleta(){
+    GeoTrans(){
     }
 
-    Bicicleta(int _amountRays, Vector2 _centerLeft, Vector2 _centerRight, float _rayCircle, double _scale){
+    GeoTrans(int _amountRays, Vector2 _centerLeft, Vector2 _centerRight, float _rayCircle, double _scale){
         this->amountRays = _amountRays;
         this->centerLeft.set(_centerLeft.x, _centerLeft.y);
         this->centerRight.set(_centerRight.x, _centerRight.y);
@@ -77,8 +77,22 @@ public:
         quadril.set((centerRight.x-centerLeft.y)/3 + centerLeft.x-rayCircle/3, centerLeft.y+rayCircle+rayCircle/4);
         ///pedal
         centerPedal.set((centerRight.x-centerLeft.y)/2 + centerLeft.x, centerLeft.y-rayCircle/2);
-        CV::color(0);
-        CV::translate(0,0);
+        for(int i = 0; i <1; i++){
+            CV::translate(0,0);
+            CV::color(0.5,0.5,0.5);
+            CV::circleFill(centerPedal,10,10);
+            CV::color(0);
+            CV::circleFill(centerPedal,4,10);
+            CV::translate(centerPedal);
+            CV::color(0.8,0.8,0.8);
+            CV::line(pedalRight[0],pedalRight[1],3);
+            CV::color(0,1,1);
+            CV::circleFill(pedalLeft[1],4,10);
+            CV::circleFill(pedalRight[1],4,10);
+            ///pl e pr recebem o valor onde os pedais estão centrados pois manipulei apenas o ponto externo
+            pl = centerPedal+pedalLeft[1];
+            pr = centerPedal+pedalRight[1];
+        }
     }
 
     void DrawMan(){
@@ -94,11 +108,13 @@ public:
         CV::line(guidaoLeft.x-rayCircle/3, guidaoLeft.y, guidaoLeft.x, guidaoLeft.y,2);
         CV::line(centerPedal.x-rayCircle/3,guidaoLeft.y+rayCircle/3, guidaoRight.x-rayCircle/3, guidaoRight.y+rayCircle/10,2);
         CV::line(guidaoRight.x-rayCircle/3, guidaoRight.y+rayCircle/10, guidaoRight.x, guidaoRight.y,2);
-        ///Perna esq e dir
-        calcjueio(pl,pr,quadril,perna_size);
+        ///Perna dir não será desenhada aqui, será desenhada antes de bike
+        calcJoelhos(pl,pr,quadril,perna_size);
+        CV::line(quadril, joelhoRight,2);
+        CV::line(joelhoRight, pr,2);
     }
 
-
+    ///Função usada para rotacionar os pedais e raios
     void Rot(){
         float radRot, radPedalLeft, radPedalRight;
         for (int currentRay = 0;currentRay < amountRays ;currentRay ++){
@@ -125,31 +141,10 @@ public:
         for (int currentRay = 0;currentRay < amountRays ;currentRay ++){
             CV::line(raysRight->p1[currentRay],raysRight->p2[currentRay],2);
         }
-
-        CV::translate(centerPedal);
-        for(int i = 0; i <1; i++){
-            CV::translate(0,0);
-            CV::color(0.5,0.5,0.5);
-            CV::circleFill(centerPedal,10,10);
-            CV::color(0);
-            CV::circleFill(centerPedal,4,10);
-            CV::translate(centerPedal);
-            CV::color(0.8,0.8,0.8);
-            CV::line(pedalRight[0],pedalRight[1],3);
-            CV::color(0,1,1);
-            CV::circleFill(pedalLeft[1],4,10);
-            CV::circleFill(pedalRight[1],4,10);
-            pl = centerPedal+pedalLeft[1];
-            pr = centerPedal+pedalRight[1];
-        }
-        CV::color(0);
-        CV::translate(0,0);
-
-        CV::line(quadril, joelhoRight,2);
-        CV::line(joelhoRight, pr,2);
     }
 
-    void calcjueio(Vector2 pedal_esq, Vector2 pedal_dir, Vector2 quadril, float perna_tam){
+    ///https://math.stackexchange.com/questions/256100/how-can-i-find-the-points-at-which-two-circles-intersect
+    void calcJoelhos(Vector2 pedal_esq, Vector2 pedal_dir, Vector2 quadril, float perna_tam){
         float d_esq, l_esq, h_esq, r1, r2, d_dir, l_dir, h_dir;
         r1 = perna_tam*0.5; r2 = perna_tam*0.5;
         d_esq = sqrt((pow(pedal_esq.x-quadril.x, 2))+ (pow(pedal_esq.y-quadril.y, 2)));

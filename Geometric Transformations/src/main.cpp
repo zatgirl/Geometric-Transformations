@@ -8,10 +8,14 @@
 //  Estude o OpenGL antes de tentar compreender o arquivo gl_canvas.cpp
 //
 //  Versao 2.0
-//
-//  Instruções:
-//	  Para alterar a animacao, digite numeros entre 1 e 3
 // *********************************************************************/
+///Implementações:
+///-Desenho da bicicleta e personagem;
+///-Animação de pedalar com posicionamento correto das pernas e pedais, e correta rotação das rodas;
+///-Controle de FPS;
+///-Curva de Bezier;
+///-Ligação matematicamente correta entre o pedal e a perna.
+
 
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h> //callback da wheel do mouse.
@@ -23,7 +27,7 @@
 #include "gl_canvas2d.h"
 
 #include "Vector2.h"
-#include "bicicleta.h"
+#include "geotrans.h"
 #include "scene.h"
 #include "Frames.h"
 
@@ -34,13 +38,13 @@ Vector2 cL, cR;
 int amountRays = 8;
 float fps;
 
-Bicicleta *bike;
+GeoTrans *geotrans;
 Scene *scene;
 Frames *frames;
 
 void render()
 {
-    bike->render();
+    geotrans->render();
     scene->render();
     fps = frames->getFrames();
     scene->viewFrames(fps, screenWidth, screenHeight);
@@ -52,19 +56,19 @@ void keyboard(int key)
     ///Controla a velocidade da bicicleta e quantitade de raios
     switch(key){
     case 202:
-        bike->vel += 0.01;
+        geotrans->vel += 0.01;
         scene->vel += 0.01;
         break;
     case 200:
-        bike->vel -= 0.01;
+        geotrans->vel -= 0.01;
         scene->vel -= 0.01;
         break;
     case 43:
-        bike->amountRays +=4;
+        geotrans->amountRays +=4;
         break;
     case 45:
         if(amountRays != 4){
-            bike->amountRays -=4;
+            geotrans->amountRays -=4;
         }
         break;
     }
@@ -83,7 +87,7 @@ int main(void)
 {
     cL.set(200,200);
     cR.set(400,200);
-    bike = new Bicicleta(amountRays, cL, cR, 50, 1);
+    geotrans = new GeoTrans(amountRays, cL, cR, 50, 1);
     scene = new Scene();
     frames = new Frames();
     CV::init(&screenWidth, &screenHeight, "T3");
