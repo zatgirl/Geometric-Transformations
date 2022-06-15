@@ -12,13 +12,6 @@
 class BE
 {
  public:
-    //static std::vector<Vector2*> v;
-
-    #if 0
-    BE(std::vector<Vector2*> _v){
-        this->v = _v;
-    }
-    #endif
 
     static void CurvaSimples(std::vector<Vector2*> v){
         Vector2 p;
@@ -32,7 +25,7 @@ class BE
             }
     }
 
-    static void CurvaGrande(std::vector<Vector2*> v) {
+    static void CurvaGrande(std::vector<Vector2*> v, float vel) {
        Vector2 p;
        int size_v;
        size_v = v.size();
@@ -42,7 +35,7 @@ class BE
               p = *v[i] * (1-t)*(1-t) +
                   *v[i+1] * 2 * t * (1 - t) +
                   *v[i+2] * (t * t);
-              CV::point(p.x,p.y);
+              CV::point(p.x-vel,p.y);
            }
        }
     }
