@@ -13,7 +13,7 @@ class Scene
 public:
     std::vector<Vector2*> montain;
     bool pass = true;
-    float vel;
+    bool vel;
 
     void render(){
         if(pass == true){

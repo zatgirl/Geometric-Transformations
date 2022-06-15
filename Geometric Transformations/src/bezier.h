@@ -9,9 +9,11 @@
 
 #include "Vector2.h"
 
+int xx = 0;
 class BE
 {
  public:
+
 
     static void CurvaSimples(std::vector<Vector2*> v){
         Vector2 p;
@@ -25,17 +27,24 @@ class BE
             }
     }
 
-    static void CurvaGrande(std::vector<Vector2*> v, float vel) {
+    static void CurvaGrande(std::vector<Vector2*> v, bool vel) {
        Vector2 p;
        int size_v;
        size_v = v.size();
        CV::color(0);
+
+       if(vel){
+            xx ++;
+       } else {
+           xx --;
+       }
+
        for(int i = 0; i < size_v; i+=3){
            for (float t = 0; t < 1; t += 0.0001) {
-              p = *v[i] * (1-t)*(1-t) +
-                  *v[i+1] * 2 * t * (1 - t) +
-                  *v[i+2] * (t * t);
-              CV::point(p.x-vel,p.y);
+                p = *v[i] * (1-t)*(1-t) +
+                    *v[i+1] * 2 * t * (1 - t) +
+                    *v[i+2] * (t * t);
+                    CV::point(p.x-xx,p.y);
            }
        }
     }

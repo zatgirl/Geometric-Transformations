@@ -137,11 +137,11 @@
 	"Vector2.h"
 	"bezier.h"
 
-1655141140 source:c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\gl_canvas2d.cpp
+1655313813 source:c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\gl_canvas2d.cpp
 	"gl_canvas2d.h"
 	<GL/glut.h>
 
-1655141140 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\gl_canvas2d.h
+1655313813 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\gl_canvas2d.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -167,9 +167,9 @@
 1655141140 c:\users\maure\documents\github\geometric-transformations\geometric transformations\include\gl\freeglut_ext.h
 	<stdarg.h>
 
-1655141140 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\vector2.h
+1655313813 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\vector2.h
 
-1655149490 source:c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\main.cpp
+1655313813 source:c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<math.h>
@@ -177,10 +177,9 @@
 	<stdlib.h>
 	"gl_canvas2d.h"
 	"Vector2.h"
-	"rect.h"
-	"bicicleta.h"
-	"Bmp.h"
-	"Draw.h"
+	"geotrans.h"
+	"scene.h"
+	"Frames.h"
 
 1655141140 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\rect.h
 	<stdio.h>
@@ -243,4 +242,31 @@
 	"gl_canvas2d.h"
 	"Vector2.h"
 	"bezier.h"
+
+1655313813 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\geotrans.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"gl_canvas2d.h"
+	"Vector2.h"
+	"bezier.h"
+
+1655314019 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\bezier.h
+	<stdio.h>
+	<stdlib.h>
+	<vector>
+	"gl_canvas2d.h"
+	"Vector2.h"
+
+1655313813 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\scene.h
+	<iostream>
+	<cstdio>
+	<cstdlib>
+	<vector>
+	<cstring>
+	"bezier.h"
+
+1655313813 c:\users\maure\documents\github\geometric-transformations\geometric transformations\src\frames.h
+	<stdio.h>
+	<time.h>
 

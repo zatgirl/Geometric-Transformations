@@ -57,11 +57,11 @@ void keyboard(int key)
     switch(key){
     case 202:
         geotrans->vel += 0.01;
-        scene->vel += 0.01;
+        scene->vel = true;
         break;
     case 200:
         geotrans->vel -= 0.01;
-        scene->vel -= 0.01;
+        scene->vel = false;
         break;
     case 43:
         geotrans->amountRays +=4;
